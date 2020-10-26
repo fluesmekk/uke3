@@ -43,12 +43,26 @@
             //controller
             function checkInput () {
                 updateView();
-                compareTxt = '';
-                txt1 === txt2 ? compareTxt1 ='Tekst 1 og 2 er like<br/>' : '<del>Tekst 1 og 2 er ikke like</del><br/>';
-                txt1 === txt3 ? compareTxt2 ='Tekst 1 og 3 er like<br/>' : '<del>Tekst 1 og 3 er ikke like</del><br/>';
-                txt2 === txt3 ? compareTxt3 ='Tekst 2 og 3 er like<br/>' : '<del>Tekst 2 og 3 er ikke like</del><br/>';
+                if (txt1 !== txt2) {
+                    compareTxt1 = '<del>Tekst 1 og 2 er ikke like</del><br/>';
+                } else {
+                    compareTxt1 = 'Tekst 1 og 2 er like<br/>';
+                }
+                if (txt1 !== txt3) {
+                    compareTxt2 = '<del>Tekst 1 og 3 er ikke like</del><br/>';
+                } else { 
+                    compareTxt2 = 'Tekst 1 og 3 er like<br/>'
+                }
+                if (txt2 !== txt3) {
+                    compareTxt3 = '<del>Tekst 2 og 3 er ikke like</del><br/>';
+                } else {
+                    compareTxt3 ='Tekst 2 og 3 er like<br/>'
+                }
+                // txt1 === txt2 ? compareTxt1 ='Tekst 1 og 2 er like<br/>' : '<del>Tekst 1 og 2 er ikke like</del><br/>';
+                // txt1 === txt3 ? compareTxt2 ='Tekst 1 og 3 er like<br/>' : '<del>Tekst 1 og 3 er ikke like</del><br/>';
+                // txt2 === txt3 ? compareTxt3 ='Tekst 2 og 3 er like<br/>' : '<del>Tekst 2 og 3 er ikke like</del><br/>';
             
-            }
+            };
 
         </script>
     </body>
