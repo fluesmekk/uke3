@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <script>
+            updateView();
+            var sizeSlider;
+            var borderSlider;
+            var paddingSlider;
+            var colorChooser;
+            var borderColorChooser;
+
+            function updateView () {
+                document.getElementById('app').innerHTML = `
+                
+                <p>Ferdighet 6 - Sette sammen tekst av flere deler og bruke dette til å bygge HTML dynamisk</p>
+                Size
+                <input
+                type="range"
+                min="100"
+                max="500"
+                step="10"
+                value="${sizeSlider || 140}"
+                oninput="sizeSlider = this.value" 
+                />
+
+                <br>
+                Border
+                <input 
+                type="range" 
+                min="0" 
+                max="100" 
+                step="10" 
+                value="${borderSlider || 10}"
+                oninput="borderSlider = this.value" 
+                />
+
+                <br>
+                Padding
+                <input 
+                type="range" 
+                min="0" 
+                max="100" 
+                step="10" 
+                value="${paddingSlider || 10}"
+                oninput="paddingSlider = this.value" 
+                />
+
+                <br/>
+                <input  
+                type="text" 
+                oninput="showDiv()" 
+                value="endre teksten!" 
+                />
+                <select onchange="colorChooser = this.value">
+
+                    <option value="red">Red color</option>
+
+                    <option selected value="green">Green color</option>
+
+                    <option value="blue">Blue color</option>
+
+                </select>
+
+                <br>
+
+                <select onchange="borderColorChooser = this.value">
+
+                    <option value="solid black">Red color</option>
+
+                    <option selected value="solid grey">Green color</option>
+
+                    <option value="solid blue">Blue color</option>
+
+                </select>
+                resultatDiv.innerHTML = '<div style="'
+                + 'background-color: ' + colorChooser.value + ';'
+                + 'width: ' + sizeSlider.value + 'px;'
+                + 'height: ' + sizeSlider.value + 'px;'
+                + 'border-radius: ' + borderSlider.value + 'px;'
+                + 'border-color: ' + borderColor.value + 'px;'
+                + 'border-width:' + borderSlider.value + '">' +
+                textInput.value + '</div>';
+
+                <br>
+
+                
+                `;
+            };
+            /*  */
+
+        </script>
+    </body>
+</html>
