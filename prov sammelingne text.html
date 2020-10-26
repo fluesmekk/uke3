@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        
+
+        <script>
+
+            //model
+            updateView();
+            var txt1;
+            var txt2;
+            var txt3;
+            var compareTxt1;
+            var compareTxt2;
+            var compareTxt3;
+
+            //view
+            function updateView() {
+                document.getElementById('app').innerHTML = `
+                <p>Endre på tekstene! (Prøv også å fylle ut tall: 11, 101, 102)</p>
+                <input type="text" oninput="txt1 = this.value" value="${txt1 ? txt1 : ''}" /><br />
+                <input type="text" oninput="txt2 = this.value" value="${txt2 ? txt2 : ''}" /><br />
+                <input type="text" oninput="txt3 = this.value" value="${txt3 ? txt3 : ''}" /><br />
+                <button onclick="checkInput(); updateView();">Skjekk</button>
+                <div>${compareTxt1 ? compareTxt1 : ''}</div>
+                <div>${compareTxt2 ? compareTxt2 : ''}</div>
+                <div>${compareTxt3 ? compareTxt3 : ''}</div>
+
+                `;
+            };
+
+            //controller
+            function checkInput () {
+                updateView();
+                compareTxt = '';
+                txt1 === txt2 ? compareTxt1 ='Tekst 1 og 2 er like<br/>' : '<del>Tekst 1 og 2 er ikke like</del><br/>';
+                txt1 === txt3 ? compareTxt2 ='Tekst 1 og 3 er like<br/>' : '<del>Tekst 1 og 3 er ikke like</del><br/>';
+                txt2 === txt3 ? compareTxt3 ='Tekst 2 og 3 er like<br/>' : '<del>Tekst 2 og 3 er ikke like</del><br/>';
+            
+            }
+
+        </script>
+    </body>
+</html>
