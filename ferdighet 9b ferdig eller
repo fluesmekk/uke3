@@ -37,7 +37,7 @@
                 <div>${compareTxt1 ? compareTxt1 : ''}</div>
                 <div>${compareTxt2 ? compareTxt2 : ''}</div>
                 <div>${compareTxt3 ? compareTxt3 : ''}</div>
-                <div>Den som er numerisk/alfabetisk lavest verdi:${alfabet ? alfabet : ''}</div>
+                <div>Den som har lavest verdi enten numerisk/alfabetisk:${alfabet ? alfabet : ''}</div>
 
                 `;
             };

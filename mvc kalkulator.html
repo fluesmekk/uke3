@@ -31,6 +31,27 @@
     </style>
 </head>
 <body>
+    <div id="app"></div>
+
+
+    <script>
+        
+        
+
+        // hjelpevariabler til både view og controller
+        var resultBox = document.getElementById('resultBox');
+
+        // model
+        let input = '';
+        let åpen = 'åpen'
+
+        // view
+        show();
+        
+        function show() {
+            resultBox.innerHTML = input;
+            document.getElementById('app').innerHTML = `
+        
     <div id="resultBox" class="resultBox" id="screen"></div>
 
     <div class="firstInRow" onclick="addCharacter(7)">7</div>
@@ -52,21 +73,12 @@
     <div onclick="clearResult();">C</div>
     <div onclick="calculate()">=</div>
     <div onclick="addCharacter('+')">+</div>
-
-    <script type="text/javascript">
-        // hjelpevariabler til både view og controller
-        var resultBox = document.getElementById('resultBox');
-
-        // model
-        let input = '';
+    <div></div>
+    `;
+    
+    
+}
         
-
-        // view
-        show();
-        
-        function show() {
-            resultBox.innerHTML = input;
-        }
 
         // controller
         function addCharacter(x) {
@@ -78,6 +90,9 @@
         function calculate() {
             var calculation = input.replace('×', '*').replace('÷', '/');
             input = eval(calculation);
+            if (input="3812") {
+
+            }
             show();
         }
 
