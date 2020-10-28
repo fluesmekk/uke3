@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            font-size: 20px;
+        }
+    </style>
+    <div id="app"></div>
+    <script>
+        //model
+        var bunn = '';
+        var fyll = '';
+        var størrelse = '';
+        var hjelpeTekst = 'Du har ikke fylt ut enda';
+        //view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+            
+            <h1>PizzaBestilling</h1>
+            Gjør et valg på hver av kategoriene
+            <br>
+            <br>
+                Bunn:   <input type="radio" onchange="bunnValg('Tykk Bunn')"/>Tykk
+                        <input type="radio" onchange="bunnValg('Tynn Bunn')"/> Tynn
+                        <br>
+                        <br>
+                Fyll:   <input type="radio" onchange="fyllValg('Taco-Fyll')"/>Taco
+                        <input type="radio" onchange="fyllValg('Kylling-Fyll')"/>Kylling
+                        <input type="radio" onchange="fyllValg('Pepperoni-Fyll')"/>Pepperoni
+                        <br>
+                        <br>
+            Størrelse:  <input type="radio" onchange="størrelseValg('Stor')"/>Taco    
+                        <input type="radio" onchange="størrelseValg('Middels')"/>Kylling
+                        <input type="radio" onchange="størrelseValg('Liten')"/>Pepperoni
+                        <br>
+                        <br>
+                        <br>
+                        <div>${hjelpeTekst}</div>
+            `
+        }
+        
+        //controller
+        function bunnValg (bunnType) {
+            bunn = bunnType;
+            skjekkValg();
+        }
+        function fyllValg (fyllType) {
+            fyll = fyllType;
+            skjekkValg();
+        }
+        function størrelseValg (størrelseType) {
+            størrelse = størrelseType;
+            skjekkValg();
+        }
+        function skjekkValg () {
+            if ((bunn === 'Tynn Bunn' || bunn === 'Tykk Bunn') && 
+                (fyll === 'Taco-Fyll' || fyll === 'Kylling-Fyll' || fyll === 'Pepperoni-Fyll') && 
+                (størrelse === 'Stor' || størrelse === 'Middels' || størrelse === 'Liten')) {
+                hjelpeTekst = '';
+            }
+            updateView();
+        }
+    </script>
+</body>
+</html>
