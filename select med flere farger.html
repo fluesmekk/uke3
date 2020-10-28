@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id="app"></div>
+        <style>
+            
+        </style>
+        <script>
+            //model
+            var selectedColor = '';
+            var foregroundColor = '';
+
+            //view
+            updateView()
+            function updateView() {
+                document.getElementById('app').innerHTML = `
+                <br>
+                <br>
+                <div>
+                <select name="colors" onchange="changeColor(value)">
+                    <option value="black">Svart</option>
+                    <option value="darkblue">Mørk blå</option>
+                    <option value="lightgray">Lys grå</option>
+                    <option value="lightgreen">Lys grønn</option>
+                    <option value="salmon">Lys rød</option>
+                </select>
+                </div>
+                <div style="background-color: ${selectedColor}; color: ${foregroundColor}; width:50px; height:50px;">TXT</div>
+                `;
+            }
+            //controller
+            function changeColor (pickColor) {
+                selectedColor = pickColor;
+                if (selectedColor === 'black' || selectedColor === 'darkblue') {
+                    foregroundColor = 'white';
+                } else {
+                    foregroundColor = 'black';
+                }
+                updateView ();
+            }
+        
+        
+        
+
+        </script>
+    </body>
+</html>
