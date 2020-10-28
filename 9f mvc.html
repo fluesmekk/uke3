@@ -18,6 +18,7 @@
         var fyll = '';
         var størrelse = '';
         var hjelpeTekst = 'Du har ikke fylt ut enda';
+        var formPåPizza = '';
         //view
         updateView();
         function updateView() {
@@ -27,22 +28,33 @@
             Gjør et valg på hver av kategoriene
             <br>
             <br>
-                Bunn:   <input type="radio" onchange="bunnValg('Tykk Bunn')"/>Tykk
-                        <input type="radio" onchange="bunnValg('Tynn Bunn')"/> Tynn
+                Bunn:   <input type="checkbox" onchange="bunnValg('Tykk Bunn')"/> <b>Tykk</b>
+                        <input type="checkbox" onchange="bunnValg('Tynn Bunn')"/> <b>Tynn</b>
                         <br>
                         <br>
-                Fyll:   <input type="radio" onchange="fyllValg('Taco-Fyll')"/>Taco
-                        <input type="radio" onchange="fyllValg('Kylling-Fyll')"/>Kylling
-                        <input type="radio" onchange="fyllValg('Pepperoni-Fyll')"/>Pepperoni
+                        Du har valgt: <b>${bunn}</b>
                         <br>
                         <br>
-            Størrelse:  <input type="radio" onchange="størrelseValg('Stor')"/>Taco    
-                        <input type="radio" onchange="størrelseValg('Middels')"/>Kylling
-                        <input type="radio" onchange="størrelseValg('Liten')"/>Pepperoni
+                Fyll:   <input type="checkbox" onchange="fyllValg('Taco-Fyll');"/>      <b>Taco</b>
+                        <input type="checkbox" onchange="fyllValg('Kylling-Fyll');"/>   <b>Kylling</b>
+                        <input type="checkbox" onchange="fyllValg('Pepperoni-Fyll');"/> <b>Pepperoni</b>
+                        <br>
+                        <br>
+                        Du har valgt: <b>${fyll}</b>
+                        <br>
+                        <br>
+            Størrelse:  <input type="checkbox" onchange="størrelseValg('Stor')"/>    <b>Stor</b> 
+                        <input type="checkbox" onchange="størrelseValg('Middels')"/> <b>Middels</b>
+                        <input type="checkbox" onchange="størrelseValg('Liten')"/>   <b>Liten</b>
+                        <br>
+                        <br>
+                        Du har valgt: <b>${størrelse}</b>
                         <br>
                         <br>
                         <br>
                         <div>${hjelpeTekst}</div>
+                        <br>
+                        <button onclick="bestiltMat()">Bestill</button>
             `
         }
         
@@ -66,6 +78,9 @@
                 hjelpeTekst = '';
             }
             updateView();
+        }
+        function bestiltMat () {
+            alert (`Du har bestilt en ${størrelse} pizza med ${fyll} og med en ${bunn}`)
         }
     </script>
 </body>
