@@ -17,7 +17,7 @@
         var bunn = '';
         var fyll = '';
         var størrelse = '';
-        var hjelpeTekst = 'Du har ikke fylt ut enda';
+        var hjelpeTekst = 'Du må fylle ut alle';
         var formPåPizza = '';
         //view
         updateView();
@@ -51,10 +51,18 @@
                         Du har valgt: <b>${størrelse}</b>
                         <br>
                         <br>
+
+                        <button onclick="bestiltMat()">Bestill</button>
+            Form:       <input type="checkbox" onchange="formValg('rund')"/>        <b>Liten</b>
+                        <input type="checkbox" onchange="formValg('firkantet')"/>   <b>Firkantet</b>
+                        <br>
+                        <br>
+                        Du har valgt: <b>${formPåPizza}</b>
+                        <br>
                         <br>
                         <div>${hjelpeTekst}</div>
                         <br>
-                        <button onclick="bestiltMat()">Bestill</button>
+                        
             `
         }
         
@@ -71,16 +79,21 @@
             størrelse = størrelseType;
             skjekkValg();
         }
+        function formValg (formType) {
+            formPåPizza = formType;
+            skjekkValg();
+        }
         function skjekkValg () {
             if ((bunn === 'Tynn Bunn' || bunn === 'Tykk Bunn') && 
                 (fyll === 'Taco-Fyll' || fyll === 'Kylling-Fyll' || fyll === 'Pepperoni-Fyll') && 
-                (størrelse === 'Stor' || størrelse === 'Middels' || størrelse === 'Liten')) {
+                (størrelse === 'Stor' || størrelse === 'Middels' || størrelse === 'Liten') && 
+                (formPåPizza === 'rund' || formPåPizza === 'firkantet')) {
                 hjelpeTekst = '';
             }
             updateView();
         }
         function bestiltMat () {
-            alert (`Du har bestilt en ${størrelse} pizza med ${fyll} og med en ${bunn}`)
+            alert (`Du har bestilt en ${størrelse} pizza med ${fyll} og med en ${bunn} som er ${formPåPizza}`)
         }
     </script>
 </body>
